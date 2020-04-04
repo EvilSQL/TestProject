@@ -1,0 +1,11 @@
+nav 
+    ul 
+        block links
+        li 
+            a(href="/") Главная
+            a(href="/register") Регистрация
+            a(href="/home" style=hrefStyle) Настройки
+
+        append links 
+        li(style="float: right;")
+            a(href=url) #{buttonName}

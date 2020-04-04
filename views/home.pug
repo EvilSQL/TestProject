@@ -1,0 +1,38 @@
+extends layout
+
+mixin message(opp, name, email, url, buttonName)
+    if(opp)
+        h1.greeting Выполнен вход от пользователя 
+            span=name 
+    else 
+        h1.greeting Вы успешно зарегистрированы 
+            span=name
+block content
+    .logo-panel
+        img(src="img/logo.png")
+    .dashboard
+        .user 
+            +message(opp, name, email)
+        form(method="post" action="/home")
+        br
+        tr
+            td Имя
+            td
+        tr
+            input(type="text" name="login" value=name)
+        br
+        tr
+            td Почта
+            td
+        tr
+            input(type="text" name="email" value=email)
+        br
+        tr
+        td Пароль
+        td
+        tr
+            input(type="password" name="password")
+            br
+            input(type="submit" value="Изменить данные")
+    .animation-panel
+        include includes/animation
